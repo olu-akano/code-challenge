@@ -1,1 +1,4 @@
-
+.topnav a {
+    overflow: hidden;
+    text-decoration: none;
+}
