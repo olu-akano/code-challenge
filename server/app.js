@@ -24,6 +24,14 @@ app.get('/dogs', (req, res) => res.send(dogs));
 
 
 
+let luckyItems = [dogs, sport, europe];
+
+function imFeelingLucky () {
+    return luckyItems[Math.floor(Math.random()*items.length)];
+}
+
+app.get('/lucky', (req, res) => res.send(imFeelingLucky));
+
 
 const sport = [
     {id: 1, url: "https://www.bbc.co.uk/sport", title: "Home - BBC Sport", description: "Breaking news & live sports coverage including results, video, audio and analysis on Football, F1, Cricket, Rugby Union, Rugby League, Golf, Tennis and all ..."},
@@ -36,8 +44,6 @@ const sport = [
     {id: 8, url: "https://www.dictionary.com/browse/sport", title: "Sport Definition & Meaning | Dictionary.com", description: "Sport definition, an athletic activity requiring skill or physical prowess and often of a competitive nature, as racing, baseball, tennis, golf, bowling, ... "},
     {id: 9, url: "https://metro.co.uk/sport/", title: "Sport - Latest UK sports news, results, stats and videos - Metro", description: "Sport – Latest UK sports news, results, stats and videos."},
     {id: 10, url: "https://dictionary.cambridge.org/dictionary/english/sport", title: "SPORT | meaning in the Cambridge English Dictionary", description: "7 days ago — sport noun (GAME) ... a game, competition, or activity needing physical effort and skill that is played or done according to rules, for enjoyment ..."}
-]
-
 const sport = [
     {id: 1, url: "https://en.wikipedia.org/wiki/Europe", title: "Europe - Wikipedia", description: "Europe is a continent located entirely in the Northern Hemisphere and mostly in the Eastern Hemisphere. It comprises the westernmost peninsulas of the ..."},
     {id: 2, url: "https://www.britannica.com/place/Europe", title: "Europe | History, Countries, Map, & Facts | Britannica", description: "Europe, second smallest of the world's continents, composed of the westward-projecting peninsulas of Eurasia (the great landmass that it shares with Asia)."},
@@ -50,5 +56,4 @@ const sport = [
     {id: 9, url: "https://www.politico.eu/", title: "POLITICO – European Politics, Policy, Government News", description: "POLITICO Europe covers the politics, policy and personalities of the European Union. Our coverage includes breaking news, opinion pieces, and features."},
     {id: 10, url: "https://www.reuters.com/world/europe/", title: "Europe News | Latest Headlines & Stories | Reuters", description: "... future on Tuesday as lawmakers in his CDU/CSU alliance met to decide what to do after suffering their first national election defeat since 2002. Europe ... "}
 ]
-
 
