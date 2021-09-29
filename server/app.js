@@ -1,11 +1,11 @@
 const express = require('express');
+const cors = require('cors');
 const app = express();
 const port = 3001;
+app.use(cors());
 
 app.listen(port, () => console.log(`Express is running on port ${port}`))
 
-const cors = require('cors');
-app.use(cors());
 
 const dogs = [
     {id: 1, title: 'Dogs Trust: Dogs Rehoming & Dog Rescue Charity', url: 'https://www.dogstrust.org.uk/', description: "Dogs Trust is the UK's largest Dog Welfare Charity. Looking to rehome a rescue dog or to donate to an animal charity? Visit us today to find out more!"},
@@ -20,11 +20,6 @@ const dogs = [
     {id: 10, title: "Manchester and Cheshire Dogs' Home", url: 'https://www.dogshome.net/', description: 'Dogs. Click here to find out more about some of our residents... Fundraise.'}
 ]
 
-app.get('/dogs', (req, res) => res.send(dogs));
-
-
-
-
 const sport = [
     {id: 1, url: "https://www.bbc.co.uk/sport", title: "Home - BBC Sport", description: "Breaking news & live sports coverage including results, video, audio and analysis on Football, F1, Cricket, Rugby Union, Rugby League, Golf, Tennis and all ..."},
     {id: 2, url: "https://www.sportsdirect.com/", title: "SportsDirect.com – The UK's No 1 Sports Retailer", description: "Your one stop sport shop for the biggest brands - browse trainers for Men, Women & Kids. Plus sports fashion, clothing & accessories."},
@@ -38,7 +33,7 @@ const sport = [
     {id: 10, url: "https://dictionary.cambridge.org/dictionary/english/sport", title: "SPORT | meaning in the Cambridge English Dictionary", description: "7 days ago — sport noun (GAME) ... a game, competition, or activity needing physical effort and skill that is played or done according to rules, for enjoyment ..."}
 ]
 
-const sport = [
+const europe = [
     {id: 1, url: "https://en.wikipedia.org/wiki/Europe", title: "Europe - Wikipedia", description: "Europe is a continent located entirely in the Northern Hemisphere and mostly in the Eastern Hemisphere. It comprises the westernmost peninsulas of the ..."},
     {id: 2, url: "https://www.britannica.com/place/Europe", title: "Europe | History, Countries, Map, & Facts | Britannica", description: "Europe, second smallest of the world's continents, composed of the westward-projecting peninsulas of Eurasia (the great landmass that it shares with Asia)."},
     {id: 3, url: "https://ec.europa.eu/culture/creative-europe", title: "Creative Europe | Culture and Creativity - European ...", description: "Creative Europe programme strands · Culture sub-programme. Culture sector initiatives, such as those promoting cross-border cooperation, platforms, networking, ..."},
@@ -51,4 +46,42 @@ const sport = [
     {id: 10, url: "https://www.reuters.com/world/europe/", title: "Europe News | Latest Headlines & Stories | Reuters", description: "... future on Tuesday as lawmakers in his CDU/CSU alliance met to decide what to do after suffering their first national election defeat since 2002. Europe ... "}
 ]
 
+function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  };
 
+const getLucky = () => {
+    let searches = [dogs, sport, europe];
+    let randSearch = searches[getRandomInt(1, searches.length)];
+    let randomSiteUrl = randSearch[getRandomInt(1, randSearch.length)].url;
+    return randomSiteUrl
+};
+
+
+app.get('/', (req, res)=> {
+    res.send('Hello there!');
+});
+
+app.get('/dogs', (req, res) => {
+    res.send(dogs)
+});
+
+app.get('/sport', (req, res)=> {
+    res.send(sport);
+});
+
+app.get('/europe', (req, res) => {
+    res.send(europe);
+});
+
+app.get('/lucky'), (req, res) => {  
+    let url = getLucky();
+    res.send(url);
+};
+
+
+app.post('/', (req, res) => {
+    res.status(405).send('Not allowd');
+});
