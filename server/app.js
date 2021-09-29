@@ -21,3 +21,12 @@ const dogs = [
 ]
 
 app.get('/dogs', (req, res) => res.send(dogs));
+
+
+let luckyItems = [dogs, sport, europe];
+
+function imFeelingLucky () {
+    return luckyItems[Math.floor(Math.random()*items.length)];
+}
+
+app.get('/lucky', (req, res) => res.send(imFeelingLucky));
