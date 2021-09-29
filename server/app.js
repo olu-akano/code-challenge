@@ -23,7 +23,6 @@ const dogs = [
 app.get('/dogs', (req, res) => res.send(dogs));
 
 
-<<<<<<< HEAD
 let luckyItems = [dogs, sport, europe];
 
 function imFeelingLucky () {
@@ -31,7 +30,7 @@ function imFeelingLucky () {
 }
 
 app.get('/lucky', (req, res) => res.send(imFeelingLucky));
-=======
+
 
 
 const sport = [
@@ -47,4 +46,3 @@ const sport = [
     {id: 10, url: "https://dictionary.cambridge.org/dictionary/english/sport", title: "SPORT | meaning in the Cambridge English Dictionary", description: "7 days ago — sport noun (GAME) ... a game, competition, or activity needing physical effort and skill that is played or done according to rules, for enjoyment ..."}
 ]
 
->>>>>>> 4aeee0db2f36b0c084e275a87739aa5411ce19d0
