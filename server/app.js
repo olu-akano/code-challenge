@@ -14,7 +14,7 @@ const dogs = [
     {id: 4, title: 'Dog, facts and photos - National Geographic', url : 'https://www.nationalgeographic.com/animals/mammals/facts/domestic-dog', description: 'The term “domestic dog” refers to any of several hundred breeds of dog in the world today.'},
     {id: 5, title: "All Dog Breeds - Complete List of Dog Profiles - DogTime", url: "https://dogtime.com/dog-breeds/profiles", description: 'Detailed profiles of more than 200 dog breeds. Includes personality, history, dog pictures, dog health info, and more.'},
     {id: 6, title: 'Dogs | Healthy Pets, Healthy People | CDC', url: "https://www.cdc.gov/healthypets/pets/dogs.html", description: 'Dogs can have many positive effects on the lives of their owners. They influence social, emotional, and cognitive development in children.'},
-    {id: 7, title: "Dogs for Good - Who we are - Assistance Dogs", url = "https://www.dogsforgood.org/", description: "Dogs for Good is a life-transforming charity, creating partnerships between people living with disability and specially trained assistance dogs."},
+    // {id: 7, title: "Dogs for Good - Who we are - Assistance Dogs", url = "https://www.dogsforgood.org/", description: "Dogs for Good is a life-transforming charity, creating partnerships between people living with disability and specially trained assistance dogs."},
     {id: 8, title: 'Here are the 10 most loyal breeds of adorable and cuddly dog that are completely devoted to their owners', url: 'https://www.scotsman.com/lifestyle/family-and-parenting/these-are-the-10-most-loyal-breeds-of-adorable-dog-that-are-completely-devoted-to-their-human-families-3326796', description: ' With demand for puppies remaining high post-lockdown, here are the breeds of dogs that will love their human family unconditionally.'},
     {id: 9, title: 'Birmingham Dogs Home', url: 'https://www.birminghamdogshome.org.uk/?gclid=CjwKCAjwndCKBhAkEiwAgSDKQXu_MCPHT4RNnuUmd4b1-Fab4-qc2DvlxVaU5GHY1o0IdGN0k8jszBoCjggQAvD_BwE', description:'Helping Stray And Rejected Dogs Find Happier Tomorrows. We Provide Rescue & Rehoming Services For Dogs. Support Us Today! Save An Unloved Dog. End Dog Suffering'},
     {id: 10, title: "Manchester and Cheshire Dogs' Home", url: 'https://www.dogshome.net/', description: 'Dogs. Click here to find out more about some of our residents... Fundraise.'}
@@ -54,8 +54,8 @@ function getRandomInt(min, max) {
 
 const getLucky = () => {
     let searches = [dogs, sport, europe];
-    let randSearch = searches[getRandomInt(1, searches.length)];
-    let randomSiteUrl = randSearch[getRandomInt(1, randSearch.length)].url;
+    let randSearch = searches[getRandomInt(0, (searches.length-1))];
+    let randomSiteUrl = randSearch[getRandomInt(0, (randSearch.length-1))].url;
     return randomSiteUrl
 };
 
@@ -76,10 +76,10 @@ app.get('/europe', (req, res) => {
     res.send(europe);
 });
 
-app.get('/lucky'), (req, res) => {  
+app.get('/lucky', (req, res) => {  
     let url = getLucky();
     res.send(url);
-};
+});
 
 
 app.post('/', (req, res) => {
