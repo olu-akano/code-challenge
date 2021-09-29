@@ -6,7 +6,6 @@ app.use(cors());
 
 app.listen(port, () => console.log(`Express is running on port ${port}`))
 
-
 const dogs = [
     {id: 1, title: 'Dogs Trust: Dogs Rehoming & Dog Rescue Charity', url: 'https://www.dogstrust.org.uk/', description: "Dogs Trust is the UK's largest Dog Welfare Charity. Looking to rehome a rescue dog or to donate to an animal charity? Visit us today to find out more!"},
     {id: 2, title: 'Dog - Wikipedia', url: 'https://en.wikipedia.org/wiki/Dog', description: "The dog or domestic dog (Canis familiaris) is a domesticated descendant of the grey wolf."},
@@ -81,6 +80,84 @@ app.get('/lucky', (req, res) => {
     res.send(url);
 });
 
+const dogs = {
+    a: { title: 'Dogs Trust: Dogs Rehoming & Dog Rescue Charity', url: 'https://www.dogstrust.org.uk/', description: "Dogs Trust is the UK's largest Dog Welfare Charity. Looking to rehome a rescue dog or to donate to an animal charity? Visit us today to find out more!"},
+    b: { title: 'Dog - Wikipedia', url: 'https://en.wikipedia.org/wiki/Dog', description: "The dog or domestic dog (Canis familiaris) is a domesticated descendant of the grey wolf."},
+    c: { title: "Dog Care Advice, Tips & Health Information | RSPCA", url: 'https://www.rspca.org.uk/adviceandwelfare/pets/dogs', description: "Give a home to a rescued dog. We rescue and rehome thousands of dogs each year - each one comes with a unique personality ready made"},
+    d: { title: 'Dog, facts and photos - National Geographic', url : 'https://www.nationalgeographic.com/animals/mammals/facts/domestic-dog', description: 'The term “domestic dog” refers to any of several hundred breeds of dog in the world today.'},
+    e: { title: "All Dog Breeds - Complete List of Dog Profiles - DogTime", url: "https://dogtime.com/dog-breeds/profiles", description: 'Detailed profiles of more than 200 dog breeds. Includes personality, history, dog pictures, dog health info, and more.'},
+    f: { title: 'Dogs | Healthy Pets, Healthy People | CDC', url: "https://www.cdc.gov/healthypets/pets/dogs.html", description: 'Dogs can have many positive effects on the lives of their owners. They influence social, emotional, and cognitive development in children.'},
+    g: { title: "Dogs for Good - Who we are - Assistance Dogs", url: "https://www.dogsforgood.org/", description: "Dogs for Good is a life-transforming charity, creating partnerships between people living with disability and specially trained assistance dogs."},
+    h: { title: 'Here are the 10 most loyal breeds of adorable and cuddly dog that are completely devoted to their owners', url: 'https://www.scotsman.com/lifestyle/family-and-parenting/these-are-the-10-most-loyal-breeds-of-adorable-dog-that-are-completely-devoted-to-their-human-families-3326796', description: ' With demand for puppies remaining high post-lockdown, here are the breeds of dogs that will love their human family unconditionally.'},
+    i: { title: 'Birmingham Dogs Home', url: 'https://www.birminghamdogshome.org.uk/?gclid=CjwKCAjwndCKBhAkEiwAgSDKQXu_MCPHT4RNnuUmd4b1-Fab4-qc2DvlxVaU5GHY1o0IdGN0k8jszBoCjggQAvD_BwE', description:'Helping Stray And Rejected Dogs Find Happier Tomorrows. We Provide Rescue & Rehoming Services For Dogs. Support Us Today! Save An Unloved Dog. End Dog Suffering'},
+    j: { title: "Manchester and Cheshire Dogs' Home", url: 'https://www.dogshome.net/', description: 'Dogs. Click here to find out more about some of our residents... Fundraise.'}
+};
+
+const sport = {
+    a: { url: "https://www.bbc.co.uk/sport", title: "Home - BBC Sport", description: "Breaking news & live sports coverage including results, video, audio and analysis on Football, F1, Cricket, Rugby Union, Rugby League, Golf, Tennis and all ..."},
+    b: { url: "https://www.sportsdirect.com/", title: "SportsDirect.com – The UK's No 1 Sports Retailer", description: "Your one stop sport shop for the biggest brands - browse trainers for Men, Women & Kids. Plus sports fashion, clothing & accessories."},
+    c: { url: "https://www.sportengland.org/", title: "Sport England: Home | Uniting the Movement", description: "Sport England's vision is to transform lives and communities through sport and physical activity, driven by Uniting the Movement, a 10-year strategy of ..."},
+    d: { url: "https://www.skysports.com/", title: "Sky Sports - Sports News, Transfers, Scores | Watch Live Sport", description: "Watch the best live coverage of your favourite sports: Football, Golf, Rugby, Cricket, F1, Boxing, NFL, NBA, plus the latest sports news, ..."},
+    e: { url: "https://en.wikipedia.org/wiki/Sport", title: "Sport - Wikipedia", description: "Sport pertains to any form of competitive physical activity or game that aims to use, maintain or improve physical ability and skills while providing ..."},
+    f: { url: "https://www.independent.co.uk/sport", title: "Sport latest news, live results, updates and comment - The ...", description: "Independent Sport - Follow the latest sports news and breaking sports stories including Football, Tennis, F1, Golf and Rugby. "},
+    g: { url: "https://www.theguardian.com/uk/sport", title: "Sport news, comment and results | The Guardian", description: "Sport news, results, fixtures, blogs and comments on UK and world sport from the Guardian, the world's leading liberal voice."},
+    h: { url: "https://www.dictionary.com/browse/sport", title: "Sport Definition & Meaning | Dictionary.com", description: "Sport definition, an athletic activity requiring skill or physical prowess and often of a competitive nature, as racing, baseball, tennis, golf, bowling, ... "},
+    i: { url: "https://metro.co.uk/sport/", title: "Sport - Latest UK sports news, results, stats and videos - Metro", description: "Sport – Latest UK sports news, results, stats and videos."},
+    j: { url: "https://dictionary.cambridge.org/dictionary/english/sport", title: "SPORT | meaning in the Cambridge English Dictionary", description: "7 days ago — sport noun (GAME) ... a game, competition, or activity needing physical effort and skill that is played or done according to rules, for enjoyment ..."}
+};
+
+const europe = {
+    a: { url: "https://en.wikipedia.org/wiki/Europe", title: "Europe - Wikipedia", description: "Europe is a continent located entirely in the Northern Hemisphere and mostly in the Eastern Hemisphere. It comprises the westernmost peninsulas of the ..."},
+    b: { url: "https://www.britannica.com/place/Europe", title: "Europe | History, Countries, Map, & Facts | Britannica", description: "Europe, second smallest of the world's continents, composed of the westward-projecting peninsulas of Eurasia (the great landmass that it shares with Asia)."},
+    c: { url: "https://ec.europa.eu/culture/creative-europe", title: "Creative Europe | Culture and Creativity - European ...", description: "Creative Europe programme strands · Culture sub-programme. Culture sector initiatives, such as those promoting cross-border cooperation, platforms, networking, ..."},
+    d: { url: "https://www.aljazeera.com/europe/", title: "Europe News | Today's latest from Al Jazeera", description: "Stay on top of Europe latest developments on the ground with Al Jazeera's fact-based news, exclusive video footage, photos and updated maps."},
+    e: { url: "https://wikitravel.org/en/Europe", title: "Europe - Wikitravel", description: "Europe makes up the western one fifth of the Eurasian landmass. It's bounded by bodies of water on three sides: the Arctic Ocean to the north (the Nordkapp ..."},
+    f: { url: "https://www.nytimes.com/section/world/europe", title: "Europe - The New York Times", description: "The latest news, analysis and investigations from Europe."},
+    g: { url: "https://www.bbc.co.uk/news/world/europe", title: "Europe - BBC News", description: "Get the latest European news from BBC News in Europe: headlines, features and analysis from BBC correspondents across the European Union, EU, ..."},
+    h: { url: "https:www.facebook.com", title: "Europe | Facebook", description: "Europe. 1271567 likes · 13634 talking about this. The OFFICIAL Facebook page of the Swedish Rock group EUROPE as well as band members Joey Tempest,..."},
+    i: { url: "https://www.politico.eu/", title: "POLITICO – European Politics, Policy, Government News", description: "POLITICO Europe covers the politics, policy and personalities of the European Union. Our coverage includes breaking news, opinion pieces, and features."},
+    j: { url: "https://www.reuters.com/world/europe/", title: "Europe News | Latest Headlines & Stories | Reuters", description: "... future on Tuesday as lawmakers in his CDU/CSU alliance met to decide what to do after suffering their first national election defeat since 2002. Europe ... "}
+};
+
+function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  };
+
+const getLucky = () => {
+    let searches = [dogs, sport, europe];
+    let randSearch = searches[getRandomInt(0, (searches.length-1))];
+    let randomSiteUrl = randSearch[getRandomInt(0, (randSearch.length-1))].url;
+    return randomSiteUrl
+};
+
+
+app.get('/', (req, res)=> {
+    res.send('Hello there!');
+});
+
+app.get('/dogs', (req, res) => {
+    res.send(dogs)
+});
+
+app.get('/sport', (req, res)=> {
+    res.send(sport);
+});
+
+app.get('/europe', (req, res) => {
+    res.send(europe);
+});
+
+app.get('/lucky', (req, res) => {  
+    let url = getLucky();
+    res.send(url);
+});
+
+
+app.post('/', (req, res) => {
+    res.status(405).send('Not allowd');
+});
 
 app.post('/', (req, res) => {
     res.status(405).send('Not allowd');
