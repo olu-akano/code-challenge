@@ -1,0 +1,16 @@
+header {
+    border-bottom: 2px solid lightgrey;
+}
+
+#iconAndForm {
+    height: 50px; 
+}
+
+#icon {
+    height: auto;
+    width: 100px
+}
+
+#tools {
+    height: 50px;
+}
