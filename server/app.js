@@ -23,7 +23,7 @@ const dogs = [
 app.get('/dogs', (req, res) => res.send(dogs));
 
 
-<<<<<<< HEAD
+
 let luckyItems = [dogs, sport, europe];
 
 function imFeelingLucky () {
@@ -31,7 +31,6 @@ function imFeelingLucky () {
 }
 
 app.get('/lucky', (req, res) => res.send(imFeelingLucky));
-=======
 
 
 const sport = [
@@ -45,6 +44,16 @@ const sport = [
     {id: 8, url: "https://www.dictionary.com/browse/sport", title: "Sport Definition & Meaning | Dictionary.com", description: "Sport definition, an athletic activity requiring skill or physical prowess and often of a competitive nature, as racing, baseball, tennis, golf, bowling, ... "},
     {id: 9, url: "https://metro.co.uk/sport/", title: "Sport - Latest UK sports news, results, stats and videos - Metro", description: "Sport – Latest UK sports news, results, stats and videos."},
     {id: 10, url: "https://dictionary.cambridge.org/dictionary/english/sport", title: "SPORT | meaning in the Cambridge English Dictionary", description: "7 days ago — sport noun (GAME) ... a game, competition, or activity needing physical effort and skill that is played or done according to rules, for enjoyment ..."}
+const sport = [
+    {id: 1, url: "https://en.wikipedia.org/wiki/Europe", title: "Europe - Wikipedia", description: "Europe is a continent located entirely in the Northern Hemisphere and mostly in the Eastern Hemisphere. It comprises the westernmost peninsulas of the ..."},
+    {id: 2, url: "https://www.britannica.com/place/Europe", title: "Europe | History, Countries, Map, & Facts | Britannica", description: "Europe, second smallest of the world's continents, composed of the westward-projecting peninsulas of Eurasia (the great landmass that it shares with Asia)."},
+    {id: 3, url: "https://ec.europa.eu/culture/creative-europe", title: "Creative Europe | Culture and Creativity - European ...", description: "Creative Europe programme strands · Culture sub-programme. Culture sector initiatives, such as those promoting cross-border cooperation, platforms, networking, ..."},
+    {id: 4, url: "https://www.aljazeera.com/europe/", title: "Europe News | Today's latest from Al Jazeera", description: "Stay on top of Europe latest developments on the ground with Al Jazeera's fact-based news, exclusive video footage, photos and updated maps."},
+    {id: 5, url: "https://wikitravel.org/en/Europe", title: "Europe - Wikitravel", description: "Europe makes up the western one fifth of the Eurasian landmass. It's bounded by bodies of water on three sides: the Arctic Ocean to the north (the Nordkapp ..."},
+    {id: 6, url: "https://www.nytimes.com/section/world/europe", title: "Europe - The New York Times", description: "The latest news, analysis and investigations from Europe."},
+    {id: 7, url: "https://www.bbc.co.uk/news/world/europe", title: "Europe - BBC News", description: "Get the latest European news from BBC News in Europe: headlines, features and analysis from BBC correspondents across the European Union, EU, ..."},
+    {id: 8, url: "https:www.facebook.com", title: "Europe | Facebook", description: "Europe. 1271567 likes · 13634 talking about this. The OFFICIAL Facebook page of the Swedish Rock group EUROPE as well as band members Joey Tempest,..."},
+    {id: 9, url: "https://www.politico.eu/", title: "POLITICO – European Politics, Policy, Government News", description: "POLITICO Europe covers the politics, policy and personalities of the European Union. Our coverage includes breaking news, opinion pieces, and features."},
+    {id: 10, url: "https://www.reuters.com/world/europe/", title: "Europe News | Latest Headlines & Stories | Reuters", description: "... future on Tuesday as lawmakers in his CDU/CSU alliance met to decide what to do after suffering their first national election defeat since 2002. Europe ... "}
 ]
 
->>>>>>> 4aeee0db2f36b0c084e275a87739aa5411ce19d0
