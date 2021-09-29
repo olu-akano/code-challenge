@@ -1,9 +1,11 @@
-const luckyButton = document.getElementById('#lucky');
+const luckyButton = document.getElementById('lucky');
 
-luckyButton.addEventListener('click', e => {
-    e.preventDefault();
-
+luckyButton.addEventListener('submit', e => {
+    let url = imFeelingLucky;
+    console.log(url);
+    luckyButton.setAttribute("action", url)
 })
+
 
 
 const imFeelingLucky = async () => {
@@ -15,3 +17,4 @@ const imFeelingLucky = async () => {
         console.error(`Oh no..${err}`)
     }
 }
+
